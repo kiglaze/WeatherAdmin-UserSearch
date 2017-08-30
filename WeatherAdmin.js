@@ -8,3 +8,11 @@ WeatherAdmin.prototype.addUser = function(userSearch) {
 WeatherAdmin.prototype.getuserSearchesArray = function() {
 	return this.userSearches;
 };
+WeatherAdmin.prototype.printUserSearchesArray = function() {
+	var userSearches = this.getuserSearchesArray();
+	if(userSearches) {
+		userSearches.forEach(userSearch) {
+			// TODO
+		}
+	}
+};
