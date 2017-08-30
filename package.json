@@ -1,0 +1,11 @@
+{
+  "name": "11-Completed-WeatherAdmin",
+  "version": "0.0.1",
+  "description": "Weather Admin App for class",
+  "main": "CLI.js",
+  "author": "Kristin Glaze, Zeynep Dayar",
+  "license": "ISC",
+  "dependencies": {
+    "weather-js": "^2.0.0"
+  }
+}
