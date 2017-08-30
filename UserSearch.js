@@ -9,11 +9,8 @@ var UserSearch = function(name, location) {
     this.date = Date.now();
 };
 
-UserSearch.prototype.getWeather = function(name, location) {
-
-    var search = new UserSearch(name, location);
-
-    weather.find({search: location, degreeType: "F"}, function (err, result) {
+UserSearch.prototype.getWeather = function() {
+    weather.find({search: this.location, degreeType: "F"}, function (err, result) {
 
         // If there is an error log it.
         if (err) {
@@ -26,22 +23,9 @@ UserSearch.prototype.getWeather = function(name, location) {
         // See link here: http://stackoverflow.com/questions/4810841/how-can-i-pretty-print-json-using-javascript
         console.log(JSON.stringify(result, null, 2));
 
-        fs.appendFile("log.txt", this.name + "," + this.location + "," + this.date + "\n", function (err) {
-
-            // If an error was experienced we say it.
-            if (err) {
-                console.log(err);
-            }
-
-            // If no error is experienced, we'll log the phrase "Content Added" to our node console.
-            else {
-                console.log("User search added to file!");
-            }
-
-        });
+        fs.appendFileSync("log.txt", this.name + "," + this.location + "," + this.date + "\n");
     });
 };
 
 module.exports = UserSearch;
-
 
