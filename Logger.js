@@ -5,13 +5,17 @@ function Logger() {
 		fs.appendFileSync(LOG_FILE, name + "," + location + "," + date + "\n");
 	};
 	this.readLog = function() {
-		// TODO
-	};
+        var logFileContent = fs.readFileSync(LOG_FILE, "utf8");
+		var lines = logFileContent.split(/\r?\n/);
+		for (var i=0; i<lines.length; i++) {
+			items = lines[i].split(',');
+			console.log(items[0],' ', items[1], ' ', items[2].toString());
+		}
+    };
 }
 
-var logFileContent = fs.readFileSync(LOG_FILE, "utf8");
-console.log(logFileContent);
+//var logger = new Logger();
 
-var logger = new Logger();
+module.exports = Logger;
 
 
