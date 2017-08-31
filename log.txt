@@ -1,0 +1,5 @@
+zeynep,Raleigh,1504138483169
+kristin,Cary,1504138684170
+zeynep,NYC,1504140646608
+kristin,Lousiville,1504140721182
+kristin,austin,1504140804296

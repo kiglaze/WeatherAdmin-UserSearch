@@ -13,6 +13,7 @@ var UserSearch = function(name, location) {
 var logger = new Logger();
 
 UserSearch.prototype.getWeather = function() {
+    self = this;
     weather.find({search: this.location, degreeType: "F"}, function (err, result) {
 
         // If there is an error log it.
@@ -26,8 +27,8 @@ UserSearch.prototype.getWeather = function() {
         // See link here: http://stackoverflow.com/questions/4810841/how-can-i-pretty-print-json-using-javascript
         console.log(JSON.stringify(result, null, 2));
 
-
-        logger.add(this.name, this.location, new Date());
+        console.log(self);
+        logger.add(self.name, self.location, self.date);
     });
 };
 
