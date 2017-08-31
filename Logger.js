@@ -1,4 +1,5 @@
 var fs = require("fs");
+var moment = require('moment');
 const LOG_FILE = "log.txt";
 function Logger() {
 	this.add = function(name, location, date) {
@@ -7,15 +8,18 @@ function Logger() {
 	this.readLog = function() {
         var logFileContent = fs.readFileSync(LOG_FILE, "utf8");
 		var lines = logFileContent.split(/\r?\n/);
-		for (var i=0; i<lines.length; i++) {
+		for (var i=0; i<lines.length - 1; i++) {
 			items = lines[i].split(',');
-			console.log(items[0],' ', items[1], ' ', items[2].toString());
+			console.log(items[0],' ', items[1], ' ', moment(Number(items[2])).format("dddd, MMMM Do YYYY, h:mm:ss a"));
 		}
     };
 }
 
-//var logger = new Logger();
+var logger = new Logger();
+logger.readLog();
 
 module.exports = Logger;
+
+
 
 
