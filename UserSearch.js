@@ -1,6 +1,7 @@
 // Here we include the weather-js so we can use it in our Node application.
 var weather = require("weather-js");
 var fs = require("fs");
+var Logger = require("./Logger.js");
 
 // Constructor function for creating UserSearch objects
 var UserSearch = function(name, location) {
@@ -8,6 +9,8 @@ var UserSearch = function(name, location) {
     this.location = location;
     this.date = Date.now();
 };
+
+var logger = new Logger();
 
 UserSearch.prototype.getWeather = function() {
     weather.find({search: this.location, degreeType: "F"}, function (err, result) {
@@ -23,7 +26,8 @@ UserSearch.prototype.getWeather = function() {
         // See link here: http://stackoverflow.com/questions/4810841/how-can-i-pretty-print-json-using-javascript
         console.log(JSON.stringify(result, null, 2));
 
-        fs.appendFileSync("log.txt", this.name + "," + this.location + "," + this.date + "\n");
+
+        logger.add(this.name, this.location, new Date());
     });
 };
 
