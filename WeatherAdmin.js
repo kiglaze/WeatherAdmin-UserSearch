@@ -5,6 +5,7 @@ var WeatherAdmin = function() {
 WeatherAdmin.prototype.addUserSearch = function(name, location) {
 	var userSearch = new UserSearch(name, location);
 	this.userSearches.push(userSearch);
+	userSearch.getWeather();
 };
 WeatherAdmin.prototype.getuserSearchesArray = function() {
 	return this.userSearches;
