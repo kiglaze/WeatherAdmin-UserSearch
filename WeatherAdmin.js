@@ -16,3 +16,5 @@ WeatherAdmin.prototype.printUserSearchesArray = function() {
 		}
 	}
 };
+
+module.exports = WeatherAdmin;
