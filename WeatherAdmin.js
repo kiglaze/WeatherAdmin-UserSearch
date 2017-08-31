@@ -1,4 +1,4 @@
-var UserSearch = require("UserSearch.js");
+var UserSearch = require("./UserSearch.js");
 var WeatherAdmin = function() {
 	this.userSearches = [];
 }
@@ -12,9 +12,9 @@ WeatherAdmin.prototype.getuserSearchesArray = function() {
 WeatherAdmin.prototype.printUserSearchesArray = function() {
 	var userSearches = this.getuserSearchesArray();
 	if(userSearches) {
-		userSearches.forEach(userSearch) {
+		userSearches.forEach(function(userSearch) {
 			console.log(JSON.stringify(userSearch));
-		}
+		});
 	}
 };
 
