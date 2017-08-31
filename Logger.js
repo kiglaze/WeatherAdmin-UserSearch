@@ -15,8 +15,10 @@ function Logger() {
     };
 }
 
+/*
 var logger = new Logger();
 logger.readLog();
+*/
 
 module.exports = Logger;
 
