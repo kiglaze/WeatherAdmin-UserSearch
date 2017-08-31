@@ -1,8 +1,9 @@
 var UserSearch = require("UserSearch.js");
-var WeatherAdmin = function(userSearches) {
-	this.userSearches = userSearches;
+var WeatherAdmin = function() {
+	this.userSearches = [];
 }
-WeatherAdmin.prototype.addUser = function(userSearch) {
+WeatherAdmin.prototype.addUserSearch = function(name, location) {
+	var userSearch = new UserSearch(name, location);
 	this.userSearches.push(userSearch);
 };
 WeatherAdmin.prototype.getuserSearchesArray = function() {
@@ -12,7 +13,7 @@ WeatherAdmin.prototype.printUserSearchesArray = function() {
 	var userSearches = this.getuserSearchesArray();
 	if(userSearches) {
 		userSearches.forEach(userSearch) {
-			// TODO
+			console.log(JSON.stringify(userSearch));
 		}
 	}
 };
